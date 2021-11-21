@@ -1,0 +1,17 @@
+//指定版本
+syntax = "proto3";
+
+option go_package="./;pb";
+//消息体设置
+message timeInfo {
+    int64 timeUTC = 1;
+    int64 timeSecond = 2;
+}
+
+message timeRequire {
+    string type = 1;
+}
+
+service serverTime {
+    rpc ShowTime(timeRequire) returns (timeInfo);
+}
